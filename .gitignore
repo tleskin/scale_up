@@ -14,3 +14,6 @@
 /config/secrets.yml
 /public/system/*
 /spec/test_files
+
+# Ignore application configuration
+/config/application.yml
