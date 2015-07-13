@@ -3,7 +3,7 @@
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated June 20, 2015
+# Generated July 13, 2015
 #
 # This configuration file is custom generated for Turing.io
 #
@@ -12,7 +12,7 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: f3b8afeb5c24a4b64ccd8e78036888166f829418s
+  license_key: f3b8afeb5c24a4b64ccd8e78036888166f829418
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
