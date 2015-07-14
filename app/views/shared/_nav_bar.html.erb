@@ -21,6 +21,7 @@
       <%= menu_group do %>
         <%= menu_item "Dashboard", admin_path %>
         <%= drop_down "Tickets" do %>
+          <%= Category %>
           <%= menu_item "All Tickets", tickets_path %>
           <%= menu_item "Sports", tickets_path(category: "Sports") %>
           <%= menu_item "Music", tickets_path(category: "Music") %>

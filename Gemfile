@@ -20,7 +20,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'google_timezone'
 gem 'geokit'
 gem 'newrelic_rpm'
-gem "figaro"
+gem 'figaro'
+gem 'poltergeist'
+gem 'selenium-webdriver'
+gem 'populator'
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 group :development, :test do
   gem 'byebug', '~> 3.5.0'
@@ -35,6 +40,5 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor', '0.0.2'
-  gem 'rmagick', '2.13.2'
   gem 'fog'
 end

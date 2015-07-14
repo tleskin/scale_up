@@ -18,33 +18,33 @@ class Seed
   end
 
   def generate_categories
-    @categories = Category.create([
-      { name: "Sports" },
-      { name: "Music" },
-      { name: "Theater" },
-    ])
+    15.times do
+      @categories = Category.create([
+        { name: Faker::Lorem.word }
+      ])
+    end
   end
 
   def generate_images
     @images = Image.create([
       { title: "Blazers vs. Nuggets",
         description: "Lillard vs Nuggets",
-        img: File.new("#{Rails.root}/app/assets/images/blazers-nuggets.jpg") },
+        img: ("http://data2.whicdn.com/images/61594364/large.gif") },
       { title: "Hannibal Burress",
         description: "Hannibal Burress Headshot",
-        img: File.new("#{Rails.root}/app/assets/images/hannibal-buress.jpg") },
+        img: ("http://33.media.tumblr.com/751c497c9e8fe4bf25fda64d53e3229b/tumblr_nbaa9sZBKd1r4xjo2o1_250.gif") },
       { title: "Pitbull and Enrique Iglesias",
         description: "Pitbull and Enrique Being Bosses",
-        img: File.new("#{Rails.root}/app/assets/images/pitbull-enrique.jpg") },
+        img: ("https://s-media-cache-ak0.pinimg.com/236x/f8/8b/9f/f88b9f3a9f1b3642346a2ae71e3bd2ac.jpg") },
       { title: "ABBA!!!",
         description: "The whole gang",
-        img: File.new("#{Rails.root}/app/assets/images/abba.jpg") },
+        img: ("https://s-media-cache-ak0.pinimg.com/236x/6d/8c/bd/6d8cbdfe0af74670e4e46b4be84bddb5.jpg") },
       { title: "Portland Timbers",
         description: "The Portland Timbers",
-        img: File.new("#{Rails.root}/app/assets/images/timbers.jpg") },
+        img: ("http://24.media.tumblr.com/667c5b72c4404f24c35440a71ca8f37f/tumblr_muhgl4tUbX1r4xjo2o1_250.gif") },
       { title: "Missing",
         description: "crowd",
-        img: File.new("#{Rails.root}/app/assets/images/crowd.jpg") }
+        img: ("https://s-media-cache-ak0.pinimg.com/236x/c4/0a/09/c40a098f27c8fcbc61d94a9d0959cd45.jpg") }
     ])
   end
 
@@ -390,6 +390,7 @@ class Seed
         ))
         puts "Item #{i}: #{item.id} created!"
     end
+
 
     100.times do |i|
       event_offset = rand(Event.count)
