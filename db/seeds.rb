@@ -18,11 +18,23 @@ class Seed
   end
 
   def generate_categories
-    15.times do
-      @categories = Category.create([
-        { name: Faker::Lorem.word }
-      ])
-    end
+    @categories = Category.create([
+      { name: "Sports" },
+      { name: "Music" },
+      { name: "Theater" },
+      { name: "Space" },
+      { name: "Tech" },
+      { name: "Sci-fi" },
+      { name: "Virtual Reality" },
+      { name: "Circus" },
+      { name: "Rodeo" },
+      { name: "Rock" },
+      { name: "Science" },
+      { name: "Literary" },
+      { name: "Travel" },
+      { name: "History" },
+      { name: "Renaissance" },
+    ])
   end
 
   def generate_images
@@ -84,7 +96,7 @@ class Seed
       approved:     true)
     @event2.image      = @images[1]
     @event2.venue      = @venues[1]
-    @event2.category = @categories[2]
+    @event2.category = @categories[1]
 
     @event3 = Event.new(
       title:        "Pitbull and Enrique Iglesias",
@@ -94,7 +106,7 @@ class Seed
       approved:     true)
     @event3.image      = @images[2]
     @event3.venue      = @venues[0]
-    @event3.category = @categories[1]
+    @event3.category = @categories[3]
 
     @event4 = Event.new(
       title:        "Taylor Swift",
@@ -104,7 +116,7 @@ class Seed
       approved:     true)
     @event4.image      = @images[2]
     @event4.venue      = @venues[0]
-    @event4.category = @categories[1]
+    @event4.category = @categories[4]
 
     @event5 = Event.new(
       title:        "Snoop Dogg",
@@ -114,7 +126,7 @@ class Seed
       approved:     false)
     @event5.image      = @images[2]
     @event5.venue      = @venues[0]
-    @event5.category = @categories[1]
+    @event5.category = @categories[5]
 
     @event6 = Event.new(
       title:        "TLC",
@@ -124,7 +136,7 @@ class Seed
       approved:     true)
     @event6.image      = @images[2]
     @event6.venue      = @venues[0]
-    @event6.category = @categories[1]
+    @event6.category = @categories.sample
 
     @event7 = Event.new(
       title:        "Johnny Cash",
@@ -134,7 +146,7 @@ class Seed
       approved:     true)
     @event7.image      = @images[2]
     @event7.venue      = @venues[0]
-    @event7.category = @categories[1]
+    @event7.category = @categories[10]
 
     @event8 = Event.new(
       title:        "Britney Spears",
@@ -144,7 +156,7 @@ class Seed
       approved:     true)
     @event8.image      = @images[2]
     @event8.venue      = @venues[0]
-    @event8.category = @categories[1]
+    @event8.category = @categories[0]
 
     @event9 = Event.new(
       title:        "Reunion Tour: Abba",
@@ -154,7 +166,7 @@ class Seed
       approved:     true)
     @event9.image      = @images[3]
     @event9.venue      = @venues[2]
-    @event9.category = @categories[1]
+    @event9.category = @categories[13]
 
     @event10 = Event.new(
       title:        "Portland Timbers vs. Colorado Rapids",
@@ -164,7 +176,7 @@ class Seed
       approved:     true)
     @event10.image      = @images[4]
     @event10.venue      = @venues[3]
-    @event10.category = @categories[0]
+    @event10.category = @categories[14]
 
     @event11 = Event.new(
       title:        "Battle Bots",
@@ -174,7 +186,7 @@ class Seed
       approved:     true)
     @event11.image      = @images[-1]
     @event11.venue      = @venues[0]
-    @event11.category   = @categories[0]
+    @event11.category   = @categories[11]
 
     @event12 = Event.new(
       title:        "Harry Potter The Musical",
@@ -184,7 +196,7 @@ class Seed
       approved:     true)
     @event12.image      = @images[-1]
     @event12.venue      = @venues[1]
-    @event12.category   = @categories[1]
+    @event12.category   = @categories[3]
 
     @event13 = Event.new(
       title:        "New York Rangers vs. Chicago Blackhawks",
@@ -194,7 +206,7 @@ class Seed
       approved:     true)
     @event13.image      = @images[-1]
     @event13.venue      = @venues[2]
-    @event13.category   = @categories[0]
+    @event13.category   = @categories[7]
 
     @event14 = Event.new(
       title:        "Chicago Bears vs. Green Bay Packers",
@@ -204,7 +216,7 @@ class Seed
       approved:     true)
     @event14.image      = @images[-1]
     @event14.venue      = @venues[4]
-    @event14.category   = @categories[0]
+    @event14.category   = @categories[8]
 
     @event15 = Event.new(
       title:        "The Eagles",
@@ -214,7 +226,7 @@ class Seed
       approved:     true)
     @event15.image      = @images[-1]
     @event15.venue      = @venues[4]
-    @event15.category   = @categories[1]
+    @event15.category   = @categories[10]
 
     @event16 = Event.new(
       title:        "Chicago Blackhawks vs. Dallas Stars",
@@ -224,7 +236,7 @@ class Seed
       approved:     true)
     @event16.image      = @images[-1]
     @event16.venue      = @venues[4]
-    @event16.category   = @categories[0]
+    @event16.category   = @categories[11]
 
     @event17 = Event.new(
       title:        "Arsenal vs. Tottenham",
@@ -234,7 +246,7 @@ class Seed
       approved:     true)
     @event17.image      = @images[-1]
     @event17.venue      = @venues[5]
-    @event17.category   = @categories[0]
+    @event17.category   = @categories[13]
 
     @event18 = Event.new(
       title:        "Denver Broncos vs Seattle Seahawks",
@@ -244,7 +256,7 @@ class Seed
       approved:     true)
     @event18.image      = @images[-1]
     @event18.venue      = @venues[5]
-    @event18.category   = @categories[0]
+    @event18.category   = @categories[9]
 
     @event18 = Event.new(
       title:        "Les Miserables",
@@ -254,7 +266,7 @@ class Seed
       approved:     true)
     @event18.image      = @images[-1]
     @event18.venue      = @venues[2]
-    @event18.category   = @categories[2]
+    @event18.category   = @categories[0]
 
     @event19 = Event.new(
       title:        "CU Buffs vs. CSU Rams",
@@ -264,7 +276,7 @@ class Seed
       approved:     true)
     @event19.image      = @images[-1]
     @event19.venue      = @venues[1]
-    @event19.category   = @categories[0]
+    @event19.category   = @categories[1]
 
     @event20 = Event.new(
       title:        "Shrek The Musical",
@@ -274,7 +286,7 @@ class Seed
       approved:     true)
     @event20.image      = @images[-1]
     @event20.venue      = @venues[5]
-    @event20.category   = @categories[2]
+    @event20.category   = @categories[1]
 
     @event1.save
     @event2.save
