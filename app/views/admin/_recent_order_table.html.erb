@@ -7,6 +7,7 @@
     <th>Status</th>
     <th>Cancel Order</th>
   </tr>
+  <% will_paginate @orders  %>
   <% @orders.each do |order| %>
     <%= content_tag :tr, id: order.id do -%>
       <td><%= link_to order.id, seller_order_path(order.buyer.slug, order.id) %></td>

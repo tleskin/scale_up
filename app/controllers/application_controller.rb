@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
-  
+
   def current_user
     if session[:admin] && session[:admin] == true
       @current_user ||= Admin.find(session[:user_id]) if session[:user_id]
@@ -66,4 +66,9 @@ class ApplicationController < ActionController::Base
   def find_user
     User.find_by(email: params[:session][:email])
   end
+
+  def categories
+    @categories ||= Category.all
+  end
+  before_action :categories
 end

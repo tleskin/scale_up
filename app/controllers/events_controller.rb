@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   def index
     @items = Item.active.not_in_cart(session[:cart]).paginate(:page => params[:page], :per_page => 10)
     @category = Category.find_by(name: params[:category])
+    @categories = Category.all
+    
     if @category
       @events = Event.where(category: @category).paginate(:page => params[:page], :per_page => 10)
     else
