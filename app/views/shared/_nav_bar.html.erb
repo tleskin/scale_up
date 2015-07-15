@@ -26,6 +26,18 @@
           <%= menu_item "Sports", tickets_path(category: "Sports") %>
           <%= menu_item "Music", tickets_path(category: "Music") %>
           <%= menu_item "Theater", tickets_path(category: "Theater") %>
+          <%= menu_item "Movies", tickets_path(category: "Movies") %>
+          <%= menu_item "Comedy", tickets_path(category: "Comedy") %>
+          <%= menu_item "Conference", tickets_path(category: "Conference") %>
+          <%= menu_item "Attraction", tickets_path(category: "Attraction") %>
+          <%= menu_item "Tour", tickets_path(category: "Tour") %>
+          <%= menu_item "Seminar", tickets_path(category: "Seminar") %>
+          <%= menu_item "Networking", tickets_path(category: "Networking") %>
+          <%= menu_item "Tournament", tickets_path(category: "Tournament") %>
+          <%= menu_item "Festival", tickets_path(category: "Festival") %>
+          <%= menu_item "Rally", tickets_path(category: "Rally") %>
+          <%= menu_item "Expo", tickets_path(category: "Expo") %>
+          <%= menu_item "Party", tickets_path(category: "Party") %>
           <%=  %>
         <% end %>
       <% end %>
@@ -47,10 +59,22 @@
       <% end %>
       <%= menu_group do %>
         <%= drop_down "Buy" do %>
-          <%= menu_item "All Tickets", tickets_path %>
-          <%= menu_item "Sports", tickets_path(category: "Sports") %>
-          <%= menu_item "Music", tickets_path(category: "Music") %>
-          <%= menu_item "Theater", tickets_path(category: "Theater") %>
+        <%= menu_item "All Tickets", tickets_path %>
+        <%= menu_item "Sports", tickets_path(category: "Sports") %>
+        <%= menu_item "Music", tickets_path(category: "Music") %>
+        <%= menu_item "Theater", tickets_path(category: "Theater") %>
+        <%= menu_item "Movies", tickets_path(category: "Movies") %>
+        <%= menu_item "Comedy", tickets_path(category: "Comedy") %>
+        <%= menu_item "Conference", tickets_path(category: "Conference") %>
+        <%= menu_item "Attraction", tickets_path(category: "Attraction") %>
+        <%= menu_item "Tour", tickets_path(category: "Tour") %>
+        <%= menu_item "Seminar", tickets_path(category: "Seminar") %>
+        <%= menu_item "Networking", tickets_path(category: "Networking") %>
+        <%= menu_item "Tournament", tickets_path(category: "Tournament") %>
+        <%= menu_item "Festival", tickets_path(category: "Festival") %>
+        <%= menu_item "Rally", tickets_path(category: "Rally") %>
+        <%= menu_item "Expo", tickets_path(category: "Expo") %>
+        <%= menu_item "Party", tickets_path(category: "Party") %>
           <%=  %>
         <% end %>
       <% end %>
