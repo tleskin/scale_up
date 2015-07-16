@@ -25,10 +25,10 @@ class LoadTest
       begin
         loop do
           visit_root
-          adventure
+          click_adventure_for_random_event
           log_in("taytay@swift.com", "password")
-          create_ticket
-          past_orders
+          create_edit_delete_ticket
+          view_past_orders
           edit_profile
           search_events
           log_out
@@ -60,13 +60,13 @@ class LoadTest
     puts "User is logged in"
   end
 
-  def adventure
+  def click_adventure_for_random_event
     visit_root
     session.click_link("Adventure")
     puts "Visited Adventure path"
   end
 
-  def past_orders
+  def view_past_orders
     session.click_link("My Hubstub")
     session.click_link("Past Orders")
     session.click_link("My Hubstub")
@@ -83,7 +83,7 @@ class LoadTest
     puts "Profile edited"
   end
 
-  def create_ticket
+  def create_edit_delete_ticket
     session.click_link("My Hubstub")
     session.click_link("List a Ticket")
     puts "Visited List a Ticket"
