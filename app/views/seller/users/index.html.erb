@@ -78,7 +78,7 @@
           </thead>
           <tbody>
               <% items.each do |item| %>
-                <tr>
+                <tr class="item-row">
                   <td class="vert-align" id="seller-category">
                     <p><%= link_to(event.category.name, event_path(event)) %></p>
                   </td>
