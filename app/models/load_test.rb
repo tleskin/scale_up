@@ -41,6 +41,7 @@ class LoadTest
           admin_create_venue_and_delete_it
           admin_create_category_edit_and_delete_it
           log_out
+          unauthorized_user_visits_admin_page
         end
         rescue StandardError => error
           puts "ERROR: #{error}"
@@ -61,7 +62,12 @@ class LoadTest
     puts "At root"
   end
 
-    def log_in(email, password)
+  def unauthorized_user_visits_admin_page
+    session.visit("http://localhost:3000/admin/venues")
+    puts "unauthorized user tried to visit admin page"
+  end
+
+  def log_in(email, password)
     session.click_link("Login")
     session.fill_in "session[email]", with: email
     session.fill_in "session[password]", with: password
