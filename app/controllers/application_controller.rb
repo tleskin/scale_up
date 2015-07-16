@@ -71,4 +71,9 @@ class ApplicationController < ActionController::Base
     @categories ||= Category.all
   end
   before_action :categories
+
+  def events
+    @events ||= Event.all
+  end
+  before_action :events
 end
