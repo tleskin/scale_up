@@ -32,6 +32,15 @@ class LoadTest
           edit_profile
           search_events
           log_out
+          add_to_cart_create_account
+          log_in("admin@admin.com", "password")
+          admin_edit_event
+          admin_delete_event
+          admin_create_event
+          admin_visit_venues
+          admin_create_venue_and_delete_it
+          admin_create_category_edit_and_delete_it
+          log_out
         end
         rescue StandardError => error
           puts "ERROR: #{error}"
@@ -159,39 +168,74 @@ class LoadTest
     puts "add item to cart, create account, and remove cart item"
   end
 
+
   def admin_edit_event
-    log_in("admin@admin.com", "password")
     session.click_link "Users"
     session.all("tr").sample.click_link "Store"
+    puts "Admin visited admin users index"
+
     session.click_link "Events"
     session.click_link "Manage Events"
-    session.click_link("Edit", :match => :first)
+    session.all("tr").sample.click_link "Edit"
     session.fill_in "event[title]", with: ("A".."Z").to_a.shuffle.first(5).join
     session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
     session.fill_in "event[start_time]", with: "2000-01-01 19:00:00"
     session.click_button "Submit"
-    log_out
-    puts "admin event edit"
+    puts "Admin edited event"
   end
 
-  def admin_create_and_delete_event
-    log_in("admin@admin.com", "password")
-    session.click_link "Manage Events"
+  def admin_delete_event
+    session.all("tr").sample.click_link "Delete"
+    puts "Admin deleted event"
+  end
+
+  def admin_create_event
     session.click_link "Create Event"
-    session.fill_in "event[title]", with: "Sample Ticket"
+    session.fill_in "event[title]", with: ("A".."Z").to_a.shuffle.first(5).join
     session.fill_in "event[description]", with: "No description necessary."
     session.fill_in "event[date]", with: 33.days.from_now.change({ hour: 5, min: 0, sec: 0  })
     session.fill_in "event[start_time]", with: "2000-01-01 19:00:00"
     session.click_button "Submit"
-    puts "admin create event"
+    puts "Admin created event"
   end
 
-
-  def log_in(email, password)
-    session.click_link("Login")
-    session.fill_in "session[email]", with: email
-    session.fill_in "session[password]", with: password
-    session.click_link_or_button("Log in")
+  def admin_visit_venues
+    session.click_link "Events"
+    session.click_link "Manage Venues"
+    session.all("tr").last.click_link "Edit"
+    session.fill_in "venue[location]", with: "Denver, CO"
+    session.click_button("Submit")
+    puts "Admin edited venue"
   end
 
+  def admin_create_venue_and_delete_it
+    session.click_link_or_button("Create Venue")
+    session.fill_in "venue[name]", with: "fake venue"
+    session.fill_in "venue[location]", with: "no where"
+    session.click_button("Submit")
+    puts "Admin created a venue"
+    session.all("tr").last.click_link "Delete"
+    puts "Admin deleted venue"
+  end
+
+  def admin_create_category_edit_and_delete_it
+    session.click_link "Events"
+    session.click_link "Manage Categories"
+    session.click_link_or_button("Create Category")
+    session.fill_in "category[name]", with: "Pizza"
+    session.click_button("Submit")
+    puts "Admin created category"
+
+    session.all("tr").last.click_link "Edit"
+    session.fill_in "category[name]", with: "Burritos"
+    session.click_button("Submit")
+    puts "Admin edited category"
+
+    session.all("tr").last.click_link "Delete"
+    puts "Admin deleted category"
+  end
+
+  def visit_random_venue_page
+    session.visit("http://localhost:3000/venues/#{rand(1..15)}")
+  end
 end
