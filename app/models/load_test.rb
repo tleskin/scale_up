@@ -51,8 +51,8 @@ class LoadTest
     session.visit("http://localhost:3000/")
     puts "At root"
   end
-  
-  def log_in(email, password)
+
+    def log_in(email, password)
     session.click_link("Login")
     session.fill_in "session[email]", with: email
     session.fill_in "session[password]", with: password
@@ -87,7 +87,7 @@ class LoadTest
     session.click_link("My Hubstub")
     session.click_link("List a Ticket")
     puts "Visited List a Ticket"
-    session.select  "TLC", from: "item[event_id]"
+    session.fill_in "item[event_id]", with: rand(1..20000)
     session.fill_in "item[section]", with: "A3"
     session.fill_in "item[row]", with: "123"
     session.fill_in "item[seat]", with: "5"
