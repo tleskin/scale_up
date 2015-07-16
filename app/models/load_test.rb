@@ -58,12 +58,12 @@ class LoadTest
   private
 
   def visit_root
-    session.visit("http://localhost:3000/")
+    session.visit("https://sheltered-beach-2729.herokuapp.com/")
     puts "At root"
   end
 
   def unauthorized_user_visits_admin_page
-    session.visit("http://localhost:3000/admin/venues")
+    session.visit("https://sheltered-beach-2729.herokuapp.com/admin/venues")
     puts "unauthorized user tried to visit admin page"
   end
 
@@ -242,6 +242,6 @@ class LoadTest
   end
 
   def visit_random_venue_page
-    session.visit("http://localhost:3000/venues/#{rand(1..15)}")
+    session.visit("https://sheltered-beach-2729.herokuapp.com/venues/#{rand(1..15)}")
   end
 end
