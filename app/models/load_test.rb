@@ -21,49 +21,48 @@ class LoadTest
   end
 
   def browse
-    loop do
-      begin
-        loop do
-          visit_root
-          click_adventure_for_random_event
-          log_in("taytay@swift.com", "password")
-          create_edit_delete_ticket
-          view_past_orders
-          edit_profile
-          search_events
-          log_out
-          add_to_cart_create_account
-          log_in("admin@admin.com", "password")
-          admin_edit_event
-          admin_delete_event
-          admin_create_event
-          admin_visit_venues
-          admin_create_venue_and_delete_it
-          admin_create_category_edit_and_delete_it
-          log_out
-          unauthorized_user_visits_admin_page
-        end
-        rescue StandardError => error
-          puts "ERROR: #{error}"
-          if session.find_link('Logout')
-            log_out
-            browse
-          else
-            browse
-          end
+    begin
+      loop do
+        visit_root
+        click_adventure_for_random_event
+        log_in("taytay@swift.com", "password")
+        create_edit_delete_ticket
+        view_past_orders
+        edit_profile
+        search_events
+        log_out
+        add_to_cart_create_account
+        log_in("admin@admin.com", "password")
+        admin_edit_event
+        admin_delete_event
+        admin_create_event
+        admin_visit_venues
+        admin_create_venue_and_delete_it
+        admin_create_category_edit_and_delete_it
+        log_out
+        unauthorized_user_visits_admin_page
       end
+      rescue StandardError => error
+        puts "ERROR: #{error}"
+        if session.find_link('Logout')
+          log_out
+          browse
+        else
+          browse
+        end
     end
   end
+
 
   private
 
   def visit_root
-    session.visit("https://sheltered-beach-2729.herokuapp.com/")
+    session.visit("https://murmuring-peak-2081.herokuapp.com/")
     puts "At root"
   end
 
   def unauthorized_user_visits_admin_page
-    session.visit("https://sheltered-beach-2729.herokuapp.com/admin/venues")
+    session.visit("https://murmuring-peak-2081.herokuapp.com/admin/venues")
     puts "unauthorized user tried to visit admin page"
   end
 
@@ -242,6 +241,6 @@ class LoadTest
   end
 
   def visit_random_venue_page
-    session.visit("https://sheltered-beach-2729.herokuapp.com/venues/#{rand(1..15)}")
+    session.visit("https://murmuring-peak-2081.herokuapp.com/venues/#{rand(1..15)}")
   end
 end
